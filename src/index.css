@@ -1,0 +1,29 @@
+:root{
+  --gap: 8px;
+}
+html,body,#root{height:100%;}
+body{font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:16px}
+.app h1{margin:0 0 12px}
+.planner{display:flex; gap:16px}
+.controls{width:320px}
+.controls input{margin-left:6px; width:100px}
+.controls label{display:block; margin-bottom:8px}
+.canvas-wrap{flex:1; overflow:auto; padding:8px; border:1px solid #ddd}
+.canvas{position:relative; background-image: linear-gradient(#ddd 1px, transparent 1px), linear-gradient(90deg, #ddd 1px, transparent 1px);}
+.room{user-select:none}
+.actions button{margin-right:8px}
+
+/* Print styles: hide controls */
+@media print{
+  body *{visibility: hidden}
+  .canvas, .canvas *{visibility: visible}
+  .canvas{position: absolute; left: 0; top: 0}
+}
+
+/* Resize handle */
+.room{position:absolute}
+.resize-handle{position:absolute; width:12px; height:12px; right:0; bottom:0; background:rgba(0,0,0,0.2); cursor:se-resize}
+
+/* Ensure canvas-wrap shows full area and allows fit-to-view */
+.canvas-wrap{flex:1; overflow:auto; padding:8px; border:1px solid #ddd; display:flex; align-items:flex-start; justify-content:flex-start}
+
